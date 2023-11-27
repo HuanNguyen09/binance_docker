@@ -8,5 +8,5 @@ sudo service ssh start
 ./opt/hadoop/bin/hdfs namenode -format
 ./opt/hadoop/sbin/start-all.sh 
 
-exec /bin/bash
-# tail -f /dev/null
+# exec /bin/bash
+tail -f /dev/null

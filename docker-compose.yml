@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql
+    networks:
+      my_network:
+        ipv4_address: 172.20.1.4
+    volumes:
+      - mysql-data:/var/lib/mysql
+    # ports:
+      # - "9871:9870"
+
+  hive:
+    image: hive
+    networks:
+      my_network:
+        ipv4_address: 172.20.1.2
+    depends_on:
+      - mysql
+    volumes:
+      - datanode-data:/home/hadoop/hdfs/datanode
+      - namenode-data:/home/hadoop/hdfs/namenode
+    ports:
+      - "10009:10000"
+      - "9871:9870"
+
+
+volumes:
+  datanode-data:
+  namenode-data:
+  mysql-data:
+
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.1.0/16

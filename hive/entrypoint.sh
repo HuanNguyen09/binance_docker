@@ -6,4 +6,5 @@ sudo service ssh start
 ./opt/hadoop/sbin/start-all.sh 
 ./opt/hive/bin/schematool -initSchema -dbType mysql
 hive
-exec /bin/bash
+# exec /bin/bash
+tail -f /dev/null

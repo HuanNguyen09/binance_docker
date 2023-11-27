@@ -1,0 +1,5 @@
+USE metastore_db;
+CREATE USER 'hive'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'hive'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+-- EXIT;

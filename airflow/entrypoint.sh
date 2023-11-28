@@ -8,10 +8,9 @@ airflow users create \
     --role Admin \
     --email spiderman@superhero.org \
     --password admin
-# airflow webserver --port 8080 
+airflow webserver --port 8080 &
 airflow db upgrade
 airflow dags unpause Ingest_Extract_Transform_Load_Binance_Market_Data
-airflow scheduler
-airflow dags unpause Ingest_Extract_Transform_Load_Binance_Market_Data
+airflow scheduler &
 # exec /bin/bash
 tail -f /dev/null

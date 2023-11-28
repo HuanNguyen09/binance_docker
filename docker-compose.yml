@@ -38,6 +38,17 @@ services:
     ports:
       - "8081:8080"
 
+  superset:
+    image: superset
+    hostname: superset-container
+    networks:
+      mynetwork:
+        ipv4_address: 172.20.1.5
+    depends_on:
+      - hive
+    ports:
+      - "8089:8088"
+
 volumes:
   datanode-data:
   namenode-data:

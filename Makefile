@@ -4,3 +4,4 @@ build:
 	docker build -t mysql ./mysql
 	docker build -t hive ./hive
 	docker build -t airflow ./airflow
+	docker build -t superset ./superset
